@@ -1,11 +1,14 @@
-my_key =  os.getenv('OPENAI_KEY')
-
 import os
 import PyPDF2
 import sys
 
-# Set pdf_folder_path to take the first position in the command line
+# set parameters from command line
 pdf_folder_path = sys.argv[1] 
+model = sys.argv[2] 
+instruction_pre = open(sys.argv[3],'r').read()
+instruction_post = open(sys.argv[4],'r').read()
+outfile_name =  sys.argv[5] 
+
 # get files in folder
 pdf_names = os.listdir(pdf_folder_path)
 pdf_addresses = list(map(lambda pdf: pdf_folder_path + '/' + pdf,pdf_names))
@@ -28,16 +31,7 @@ pdf_list = [extract_text_from_pdf(pdf_address) for pdf_address in pdf_addresses]
 
 
 from openai import OpenAI
-client = OpenAI(
-    # This is the default and can be omitted
-    api_key=my_key
-)
-# Set the model to be taken from the second position in the command line
-model = sys.argv[2] 
-
-# Set the instruction to be read from a txt file cmd option 3
-instruction_pre = open(sys.argv[3],'r').read()
-instruction_post = open(sys.argv[4],'r').read()
+client = OpenAI()
 
 
 # The function takes the information set above to formulate the prompt and, ultimately, the request using the information set above:
@@ -79,7 +73,7 @@ def analyze_text_with_gpt(model,instruction_pre,instruction_post,text,text_name)
 output_data = [analyze_text_with_gpt(model,instruction_pre, instruction_post,pdf,pdf_name) for pdf,pdf_name in zip(pdf_list,pdf_names)]
 
 
-outfile_name = "output.json"
+
 with open(outfile_name,'w') as outfile:
     # json.dump doesn't get this right because the output from the gpt is a string of json txt, not an object
     outfile.write("["+",".join(output_data)+"]")

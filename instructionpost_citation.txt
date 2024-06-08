@@ -1,0 +1,11 @@
+Output the citation into json format please, very simply like this:  
+{
+  "authors": {
+    {"first":"jane","last":"doe"},
+    {"first":"john","last":"smith"},
+  }
+  "year": "2024",
+  "title": "Example Book Title",
+  "publisher": "Example Journal of Science Things",
+  "doi": "10.1234/example.doi",
+}
