@@ -12,6 +12,7 @@ pdf_addresses = list(map(lambda pdf: pdf_folder_path + '/' + pdf,pdf_names))
 
 # function to read the a pdf and extract the text inside
 def extract_text_from_pdf(file_path):
+    print(file_path)
     with open(file_path, 'rb') as file:
         reader = PyPDF2.PdfReader(file)
         text = ''

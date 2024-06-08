@@ -1,3 +1,5 @@
 Now, having read that paper and thought about music, I want you to give the style of the song that this paper would be.   E.g. rock, opera, punk, broadway, jazz, shoegaze, ragtime, whatever.
 
-Give your response as JSON, please, just a simple object containing the format {genre: <your answer>}
+Explain and justify your answer very briefly, linking the content of the paper to the music genre choice.  Note:  you should not consider the writing style or the journal style.  Just the actual scientific .content, the subject under discussion
+
+Give your response as JSON, please, just a simple object containing the format {genre: <your answer>, explanation: <your answer>}
