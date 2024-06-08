@@ -1,4 +1,4 @@
-my_key = 'sk-proj-FvLZei8BFbGGRtG4rGzQT3BlbkFJW8dC2wCyJ8DeMdihyHvf'
+my_key =  os.getenv('OPEN_AI_KEY')
 
 import os
 import PyPDF2
