@@ -1,0 +1,3 @@
+Now, having read that paper and thought about music, I want you to give the style of the song that this paper would be.   E.g. rock, opera, punk, broadway, jazz, shoegaze, ragtime, whatever.
+
+Give your response as JSON, please, just a simple object containing the format {genre: <your answer>}
