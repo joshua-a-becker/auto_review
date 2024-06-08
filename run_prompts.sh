@@ -1,2 +1,2 @@
 python3 gpt_summaries.py './papers_demo' 'gpt-4o' instruction_pre.txt instruction_post.txt output_genre.txt
-python3 gpt_summaries.py './papers_demo' 'gpt-4o' instruction_pre_citation.txt instructionpost_citation.txt output_citation.txt
+python3 gpt_summaries.py './papers_demo' 'gpt-4o' instruction_pre_citation.txt instruction_post_citation.txt output_citation.txt
