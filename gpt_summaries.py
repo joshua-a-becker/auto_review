@@ -1,4 +1,4 @@
-my_key =  os.getenv('OPEN_AI_KEY')
+my_key =  os.getenv('OPENAI_KEY')
 
 import os
 import PyPDF2
