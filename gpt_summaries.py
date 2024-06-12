@@ -22,7 +22,8 @@ def extract_text_from_pdf(file_path):
         for page_num in range(len(reader.pages)):
             page = reader.pages[page_num]
             text += page.extract_text()
-    # file.close()
+    if text == '':
+        text = 'This pdf file failed to be transformed into text!'
     return text
 
 # apply the function to all pdfs in pdf_folder_path using their pdf_address
@@ -36,16 +37,9 @@ client = OpenAI()
 
 # The function takes the information set above to formulate the prompt and, ultimately, the request using the information set above:
 # model = openai model (e.g. gpt-4-turbo)
-# instruction is read from txt file 1
-# tasks are read from txt file 2 and turned into a vector
+# instruction_pre is read from txt file 
 # the text = pdf_text
-
-# The prompt structure (i.e., the message section below)
-## The prompt is formed of two parts: 1)system instruction and 2)user request
-### The system instruction refers to the role and task requirements (not the actual task). E.g. You are a helpful assistant! The ouput of all taks needs to be in json format
-### The user request is split into two parts as well: 1) the context, and 2) the list of tasks
-#### The context refers to the pdf text in this case
-#### The list of tasks is a list of text instructions
+# instruction_post is read from txt file
 
 def analyze_text_with_gpt(model,instruction_pre,instruction_post,text,text_name):
 
